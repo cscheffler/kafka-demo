@@ -39,7 +39,17 @@ Configuration
 Edit at settings.conf to connect to your Kafka and Zookeeper hosts. By default,
 it is set up for a standalone Kafka installation on localhost.
 
-# TODO: create a topic
+For the tests below to run properly, create a topic called "test" by executing
+
+    cd /opt/kafka
+    ./bin/kafka-topics.sh --topic test --partitions 6 --create \
+        --zookeeper localhost:2181 --replication-factor 1
+
+The test topic will have 6 partitions (more on this in demo 4 below).
+
+To check that your topic got created properly, you can execute
+
+    ./bin/kafka-topics.sh --describe --zookeeper localhost:2181
 
 
 Demo 1: Running a producer
@@ -63,6 +73,22 @@ partitions from which messages got consumed. More on this in demo 4.
 
 Demo 3: Clearing out your Kafka and Zookeeper data
 --------------------------------------------------
+
+To delete all Kafka logs and Zookeeper data, you can do the following. This is
+for test purposes only and should obviously never be done in production.
+
+  1. Stop your Kafka server
+  2. Stop your Zookeeper server
+  3. rm -Rf /tmp/zookeeper/*
+     This is the default data location for a standalone Zookeeper install. See
+     the dataDir property in config/zookeeper.properties for where your
+     installation is storing things.
+  4. rm -Rf /tmp/kafka-logs/*
+     This is the default data location for a standalone Kafka install. See the
+     log.dirs property in config/server.properties for where your installation
+     is storing its Kafka logs.
+  5. Start your Zookeeper server
+  6. Start your Kafka server
 
 
 Demo 4: Running a producer and multiple, balanced consumers
