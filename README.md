@@ -34,8 +34,9 @@ or from the source repo here:
 Configuration
 -------------
 
-Edit settings.conf to connect to your Kafka and Zookeeper hosts. By default, it
-is set up for a standalone Kafka installation on localhost.
+Edit `settings.conf` in this repo to connect to your Kafka and Zookeeper
+hosts. By default, it is set up for a standalone Kafka installation on
+localhost.
 
 For the tests below to run properly, create a topic called "test" by executing
 
