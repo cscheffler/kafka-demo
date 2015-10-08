@@ -7,7 +7,7 @@ Kafka. It contains
  * scripts for performance testing the kafka-python and pykafka client libraries
  * scripts for demoing a producer and balanced consumers
 
-You can watch the video here: https://www.youtube.com/watch?v=b8Cj5-LieH0
+You can watch the talk here: https://www.youtube.com/watch?v=b8Cj5-LieH0
 
 
 Dependencies
@@ -89,10 +89,21 @@ for test purposes only and should obviously never be done in production.
      is storing its Kafka logs.
   5. Start your Zookeeper server
   6. Start your Kafka server
+  7. Re-create your Kafka topics
 
 
 Demo 4: Running a producer and multiple, balanced consumers
 -----------------------------------------------------------
+
+Run demo-producer.py and a few copies of demo-consumer.py simultaneously, in
+different terminals. You should see that the different consumers automatically
+read from different partitions. If a consumer is killed or added, the
+partitions being read will automatically be rebalanced between the consumers.
+
+Note that this will work only if your topic has more than 1 partition. Nothing
+useful happens if you have more consumers than you have partitions. See the
+"Configuration" section above on how to create a topic with multiple
+partitions.
 
 
 Demo 5: Performance tests
