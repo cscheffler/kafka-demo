@@ -31,3 +31,42 @@ At the time of writing, pykafka 2.0.1 hasn't been released yet. 2.0.0 has some
 bugs that break the performance testing code. These have been fixed and will be
 available in 2.0.1, but for now you will have to install pykafka from the
 master branch of the source repo at https://github.com/Parsely/pykafka
+
+
+Configuration
+-------------
+
+Edit at settings.conf to connect to your Kafka and Zookeeper hosts. By default,
+it is set up for a standalone Kafka installation on localhost.
+
+# TODO: create a topic
+
+
+Demo 1: Running a producer
+--------------------------
+
+python demo-producer.py
+
+This will produce messages as fast as possible and display how many got
+produced, once every 5 seconds.
+
+
+Demo 2: Running a consumer
+--------------------------
+
+python demo-consumer.py
+
+This will consume already produced messages as fast as possible and display.
+
+
+Demo 3: Clearing out your Kafka and Zookeeper data
+--------------------------------------------------
+
+
+Demo 4: Running a producer and multiple, balanced consumers
+-----------------------------------------------------------
+
+
+Demo 5: Performance tests
+-------------------------
+
