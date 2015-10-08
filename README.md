@@ -56,7 +56,9 @@ Demo 2: Running a consumer
 
 python demo-consumer.py
 
-This will consume already produced messages as fast as possible and display.
+This will consume already produced messages as fast as possible and display how
+many got consumed, once every 5 seconds. It will also show the list of
+partitions from which messages got consumed. More on this in demo 4.
 
 
 Demo 3: Clearing out your Kafka and Zookeeper data
